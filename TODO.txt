@@ -2,9 +2,10 @@ TO-DO //add as necessary
 
 homepage html - done
 connect to server - done
-register form on homepage
-login forim on homepage
+register form on homepage - done
+login forim on homepage - done
 profile page
 shopping cart
 book page
-database setup
+database setup - done
+
