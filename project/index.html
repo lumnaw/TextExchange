@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-<!-- Sidebar Multiple Checkbox--!>
+<!-- Sidebar Multiple Checkbox-->
 <script type="text/javascript">
 function getCheckedCheckboxesFor(checkboxName) {
     var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked'), values = [];
@@ -23,49 +23,49 @@ function getCheckedCheckboxesFor(checkboxName) {
 
 <body>
 
-<!--==========Sidecar navigation ===============--!>
+<!--==========Sidecar navigation ===============-->
 <div class="sidenav">
-	<h2>TE.com</h2>
-	
-	 <!-- Search Bar--!>
-	<form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-  	 <input type="text" placeholder="Search..."name="search2">
-  	 <button type="submit"><i class="fa fa-search"></i></button>
-	 </form><br>
-	
-	<div class="data">    
-	<h4>Subject</h4>
+  <h2>TE.com</h2>
+  
+   <!-- Search Bar-->
+  <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+     <input type="text" placeholder="Search..."name="search2">
+     <button type="submit"><i class="fa fa-search"></i></button>
+   </form><br>
+  
+  <div class="data">    
+  <h4>Subject</h4>
 
     <span><input name="subject" type="checkbox" value="biology"/>
-    	<label for="subject">Biology</label><br></span>    
+      <label for="subject">Biology</label><br></span>    
     <span><input name="subject" type="checkbox" value="chemistry"/>
-    	<label for="subject">Chemistry</label><br></span>
+      <label for="subject">Chemistry</label><br></span>
     <span><input name="subject" type="checkbox" value="english"/>
-    	<label for="subject">English</label><br></span>
+      <label for="subject">English</label><br></span>
     <span><input name="subject" type="checkbox" value="history"/>
-    	<label for="subject">History</label><br></span>
+      <label for="subject">History</label><br></span>
     <span><input name="subject" type="checkbox" value="law"/>
-    	<label for="subject">Law</label><br></span>
+      <label for="subject">Law</label><br></span>
     <span><input name="subject" type="checkbox" value="math"/>
-    	<label for="subject">Math</label><br></span>
+      <label for="subject">Math</label><br></span>
     <span><input name="subject" type="checkbox" value="physics"/>
-    	<label for="subject">Physics</label><br><br></span>
+      <label for="subject">Physics</label><br><br></span>
     <input type="button" class="button" value="Search">
      
     <h4><b>Price Range</b></h4>
 
     <span><input name="price" type="checkbox" value="0-15"/>
-    	<label for="price">$0.00 ~ 15.00</label><br></span>
+      <label for="price">$0.00 ~ 15.00</label><br></span>
     <span><input name="price" type="checkbox" value="15-30"/>
-    	<label for="price">$15.00 ~ 30.00</label><br></span>
+      <label for="price">$15.00 ~ 30.00</label><br></span>
     <span><input name="price" type="checkbox" value="30-50"/>
-    	<label for="price">$30.00 ~ 50.00</label><br></span>
+      <label for="price">$30.00 ~ 50.00</label><br></span>
     <span><input name="price" type="checkbox" value="50-70"/>
-    	<label for="price">$50.00 ~ 70.00</label><br></span>
+      <label for="price">$50.00 ~ 70.00</label><br></span>
     <span><input name="price" type="checkbox" value="70-90"/>
-    	<label for="price">$70.00 ~ 90.00</label><br></span>
+      <label for="price">$70.00 ~ 90.00</label><br></span>
     <span><input name="price" type="checkbox" value="90-110"/>
-    	<label for="price">$90.00 ~ 110.00</label><br><br></span>
+      <label for="price">$90.00 ~ 110.00</label><br><br></span>
     <input type="button" class="button" value="Search"><br><br><br><br>
 
 <h4><b>By Range</b></h4>
@@ -89,16 +89,16 @@ function getCheckedCheckboxesFor(checkboxName) {
 <div class="main">
 <body>
 
-<!--===============Header & Icon=================--!>
+<!--===============Header & Icon=================-->
   
     <p style="font-size: 40px;">Textbook Exchange
     <button class="iconbutton"><i class="fa fa-shopping-cart"></i></button>
-	<button  class="iconbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i></button>
+  <button  class="iconbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i></button>
 </p>
-<!--========Login Form=========--!>
+<!--========Login Form=========-->
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php">
+  <form method="POST" class="modal-content animate" action="login.php">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="user.jpg" alt="Avatar" class="avatar">
@@ -111,7 +111,7 @@ function getCheckedCheckboxesFor(checkboxName) {
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
         
-      <button type="submit" style="font-size:20px;">Login</button>
+      <input type="submit" name="Submit" style="font-size:20px;" value="Submit"/>
       <input type="checkbox" checked="checked" name="remember"><label>Remember me</label>
     </div>
 
@@ -121,7 +121,7 @@ function getCheckedCheckboxesFor(checkboxName) {
     </div>
   </form>
 </div>
-<!-- Login JS--!>
+<!-- Login JS-->
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
@@ -146,7 +146,7 @@ window.onclick = function(event) {
 <br><br>
 <hr>
 
-<!--==============Book Gallery====================--!>
+<!--==============Book Gallery====================-->
 <div class="row">
   <div class="column">
     <div class="bookcontent">
@@ -191,7 +191,7 @@ window.onclick = function(event) {
      <div class="buycontainer">
      <img src="literature.jpg" class="image" alt="Literature" style="width:100%">
     <div class="middle">
-    	<button class="buybtn"><a href="law.html">Buy Now</a></button>
+      <button class="buybtn"><a href="law.html">Buy Now</a></button>
      </div>
     </div>
       <h5>Literature</h5>
@@ -202,12 +202,12 @@ window.onclick = function(event) {
 
 
 </div>
-/*FOOTER*/
+<!--FOOTER-->
 <div class ="footer" style=" text-align: right">
     <p>About us</p>
     <p>Contact Us</p> 
     <p>Shipping & Return</p>
-  </div><!-- Page Content END--!>
+  </div><!-- Page Content END-->
 
 
 </body>
