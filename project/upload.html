@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <form action="/upload.php">
+
+  <div class="jumbotron text-center">
+  <h1>Upload Page</h1>
+</div>
+
+ <div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+
+      <label for="exampleTextarea">Book Description</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>      
+    </div>
+    <div class="col-sm-4">
+      <h3>Choose files to upload From Computer</h3>
+      <label class="custom-file">
+    <input type="file" id="file" class="custom-file-input">
+    <span class="custom-file-control"></span>
+  </label>
+      
+    </div>
+
+    <div class="col-sm-4">
+      <h3>Meetup Loacation</h3>
+    
+    <div id="googleMap" style="width:100%;height:300px;"></div>
+
+<script>
+function myMap() {
+var mapProp= {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC34ZCFu5osk73vE7giuZXXUfXr2u2FiWo&callback=myMap"></script>
+
+    </div>
+    
+
+  </div>
+
+  
+
+</div>
+
+        
+
+
+
+
+</form>
+
+
+
+</body>
+</html>
