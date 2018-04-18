@@ -36,24 +36,35 @@ function getCheckedCheckboxesFor(checkboxName) {
   <div class="data">    
   <h4>Subject</h4>
 
-    <span><input name="subject" type="checkbox" value="biology"/>
-      <label for="subject">Biology</label><br></span>    
-    <span><input name="subject" type="checkbox" value="chemistry"/>
-      <label for="subject">Chemistry</label><br></span>
-    <span><input name="subject" type="checkbox" value="english"/>
-      <label for="subject">English</label><br></span>
-    <span><input name="subject" type="checkbox" value="history"/>
-      <label for="subject">History</label><br></span>
-    <span><input name="subject" type="checkbox" value="law"/>
-      <label for="subject">Law</label><br></span>
-    <span><input name="subject" type="checkbox" value="math"/>
-      <label for="subject">Math</label><br></span>
-    <span><input name="subject" type="checkbox" value="physics"/>
-      <label for="subject">Physics</label><br><br></span>
-    <input type="button" class="button" value="Search">
-     
-    <h4><b>Price Range</b></h4>
+  <form method="POST" action="search_subject.php">
 
+    <span><input type="checkbox" name="subject[]" value="Biology"/>
+      <label for="subject">Biology</label><br></span>    
+    <span><input type="checkbox" name="subject[]" value="Chemistry"/>
+      <label for="subject">Chemistry</label><br></span> 
+    <span><input type="checkbox" name="subject[]" value="Coding"/>
+      <label for="subject">Coding</label><br></span>
+    <span><input type="checkbox" name="subject[]" value="English"/>
+      <label for="subject">English</label><br></span>  
+    <span><input type="checkbox" name="subject[]" value="Foreign Language"/>
+      <label for="subject">Foreign Language</label><br></span>
+    <span><input type="checkbox" name="subject[]" value="History"/>
+      <label for="subject">History</label><br></span>
+    <span><input type="checkbox" name="subject[]" value="Law"/>
+      <label for="subject">Law</label><br></span>
+    <span><input type="checkbox" name="subject[]" value="Math"/>
+      <label for="subject">Math</label><br></span>
+    <span><input type="checkbox" name="subject[]" value="Physics"/>
+      <label for="subject">Physics</label><br></span>
+    <span><input type="checkbox" name="subject[]" value="Other"/>
+      <label for="subject">Other</label><br><br></span>
+
+    <input type="submit" class="button" value="Search">
+
+  </form>  
+
+  <h4><b>Price Range</b></h4>
+  <form method="POST" action="search_price.php">
     <span><input name="price" type="checkbox" value="0-15"/>
       <label for="price">$0.00 ~ 15.00</label><br></span>
     <span><input name="price" type="checkbox" value="15-30"/>
@@ -65,8 +76,13 @@ function getCheckedCheckboxesFor(checkboxName) {
     <span><input name="price" type="checkbox" value="70-90"/>
       <label for="price">$70.00 ~ 90.00</label><br></span>
     <span><input name="price" type="checkbox" value="90-110"/>
-      <label for="price">$90.00 ~ 110.00</label><br><br></span>
+      <label for="price">$90.00 ~ 110.00</label><br></span>
+     <span><input name="price" type="checkbox" value=">110"/>
+      <label for="price"> >$110.00</label><br><br></span>
+
     <input type="button" class="button" value="Search"><br><br><br><br>
+
+  </form>
 
 <h4><b>By Range</b></h4>
    <span><input name="distance" type="checkbox" value="0-15"/>
@@ -93,8 +109,8 @@ function getCheckedCheckboxesFor(checkboxName) {
   
     <p style="font-size: 40px;">Textbook Exchange
     <button class="iconbutton"><i class="fa fa-shopping-cart"></i></button>
-  <button  class="iconbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i></button>
-</p>
+    <button  class="iconbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i></button>
+  </p>
 <!--========Login Form=========-->
 <div id="id01" class="modal">
   
