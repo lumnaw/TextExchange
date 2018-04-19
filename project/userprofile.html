@@ -27,13 +27,13 @@ $birthdate=$_POST["T9"];
 
 $birthyear=$_POST["T10"];
 
-$link=mysql_connect("localhost","root","") or die("Fail to connect database.");
+$link=mysql_connect("localhost","root","root") or die("Fail to connect database.");
 
 mysql_select_db("db1",$link);
 
 mysql_query("SET NAMES utf8");
 
-$q=mysql_query('select * from tb1');
+$q=mysql_query('Select * from Account');
 
 while($row=mysql_fetch_row($q)){
 

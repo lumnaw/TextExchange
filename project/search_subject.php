@@ -9,14 +9,16 @@ if($conn->connect_error)
 
 //echo "Host information: " . mysqli_get_host_info($conn) . PHP_EOL;//Feel free to delete this line, after testing.
 
-$query = "SELECT Name, Subject, Price FROM Book WHERE Available = 1 AND (";
+$query = "SELECT Name, AuthorFirst, AuthorLast, Subject, Edition, ISBN, Price, SellerID, Description FROM Book WHERE Available = 1";
 $where_clause = "";
 $first = TRUE;
+$empty = FALSE;
 $variable=$_POST["subject"];
 
 if(empty($variable))
 {
-	echo("It's empty.");
+	$empty = TRUE;
+	echo "Query is empty. Returning search by groups.". "<br><br>";
 }
 else
 {
@@ -24,36 +26,45 @@ else
 		if($first)
 		{
 			$first = false;
-			$where_clause .= "Subject = $variable";
+			$where_clause .= " AND (Subject = '$variable' ";
 			
 		}
 		else
 		{
-			$where_clause .= " OR Subject = $variable";
+			$where_clause .= " OR Subject = '$variable' ";
 		}
 	}
-	echo $where_clause,"<br>";
 }
 
-$query .= $where_clause . ")";
+if(!$empty)
+{
+	$query .= $where_clause . ")";
 
-echo $query."<br>";
+}
+else
+{
+	$query .= " GROUP BY Subject";
+}
 
-if(($result=$conn->query($sql)) == TRUE)
+if(($result=$conn->query($query)) == TRUE)
 {
     if(mysqli_num_rows($result) > 0)
     {
-        
-        header('Location: index.html');
+    	while($row = mysqli_fetch_array($result, MYSQLI_NUM))
+    	{
+        	printf ("Name: %s <br> Author: %s %s <br> Subject: %s <br> Edition: %s <br> ISBN: %s <br> Price: %0.2f <br> Seller: %s <br> Description: %s<br><br>", $row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
+    	}
+        $result->close();
     }
-    else
+    else if(mysqli_num_rows($result) == 0)
     {
-    	echo "Error: ". $conn->error;
+    	echo "There are no results for: <br>";
+    	echo $query. "<br>" . $conn->error;
     }
 }
 else
 {
-    echo "Error: ". $query . "<br>". $conn->error;
+    echo "Error: ". $query . "<br>" . $conn->error;
 }
 
 

@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 $uname = trim($_POST["uname"]);
 echo $uname."<br>";
 $password = trim($_POST["psw"]);
@@ -16,12 +16,10 @@ $sql = "Select Username, Password from Account where Username = '$uname' and Pas
  
 if(($result=$conn->query($sql)) == TRUE)
 {
-    if(mysqli_num_rows($result) > 0)
+    if(mysqli_num_rows($result) == 1)
     {
-        session_start();
         $_SESSION["Username"] = $uname;
-        $_SESSION["Password"] = $password;
-        header('Location: index.html');
+        header('Location: welcome.html');
     }
 }
 else

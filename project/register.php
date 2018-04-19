@@ -28,7 +28,7 @@ $sqlStr .= "values('$id','$firstname','$lastname','$email',$phone,'$pw','$addres
 
 if($conn->query($sqlStr) === TRUE)
 {
-	header('Location: index.html');
+	header('Location: welcome.html');
 }
 else
 {
