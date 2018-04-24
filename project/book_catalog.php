@@ -25,6 +25,7 @@ if($conn->connect_error)
 <body>
 <div class="jumbotron text-center">
   <h2>Books: Add To and Edit Your Book Listings</h2>
+  <h3><input type= "button" value="Back to User Profile" class="btn" onclick="document.location.href='userprofile.php';"/></h3>
 </div>
 
 <div class="container">
@@ -37,7 +38,7 @@ if($conn->connect_error)
             <input type="text" name="bookname" placeholder="Intro To Calculus II" required/>
             <br>
             <label for="Subject" required/>Subject: </label>
-                <select name="subject" id="subject" >
+                <select name="subject1" id="subject" >
                     <option>Biology</option>
                     <option>Chemistry</option>
                     <option>Coding</option>
@@ -57,10 +58,10 @@ if($conn->connect_error)
             <input type="text" name="authorlast" placeholder="Waterman" required/>
             <br>
             <label for="isbn"> ISBN: </label>
-            <input type="text" name="isbn" placeholder="ISBN13 only" required/>
+            <input type="text" name="isbn13" placeholder="ISBN13 only" required/>
             <br>
-            <label for="edition"> Author First Name: </label>
-            <input type="text" name="edition" placeholder="Toast" required/>
+            <label for="edition"> Edition: </label>
+            <input type="text" name="edition" placeholder="12th Edition" required/>
             <br>
             <label for="trade" required/> Trade: </label>
                 <select name="trade" id="trade" >
@@ -72,7 +73,8 @@ if($conn->connect_error)
             <input type="number" name="price" min="0" value="0" step="0.01" placeholder="0.00" required/>
             <br>
             <label for="exampleTextarea">Book Description: </label>
-            <textarea class="form-control" id="exampleTextarea" rows="10" name="description" placeholder="Please state condition of book along extra information that buyers might like to know (ex: code in back used, etc.)" ></textarea>     
+            <textarea class="form-control" id="exampleTextarea" rows="10" name="description" placeholder="Please state condition of book along extra information that buyers might like to know (ex: Homework code in back is not used, etc.)" ></textarea>
+            <input type="submit" name="submit" value="Add Book"/>     
         </form>
 
     </div>

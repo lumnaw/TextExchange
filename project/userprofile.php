@@ -57,8 +57,8 @@ $sql = "Select Username, FirstName, LastName, Email, PhoneNum, AddressName, City
     </h3>
     <form action="book_catalog.php">
     <button type= "submit" class="shopbtn">My Books</button>
-    </form>
-    
+    </form>    
+    <input type= "button" class="shopbtn" value="Back to Home Page" onclick="document.location.href='welcome.html';"/>   
   </div>
 </div>
 </body>
