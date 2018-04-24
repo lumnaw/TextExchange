@@ -1,0 +1,58 @@
+
+<html>
+<head>
+	<title>User Profile</title>
+</head>
+
+<body>
+<h1>Your Profile</h1>
+<?php
+$id=$_POST["T1"];
+
+$firstname=$_POST["T2"];
+
+$lastname=$_POST["T3"];
+
+$email=$_POST["T4"];
+
+$phone=$_POST["T5"];
+
+$pw=$_POST["T6"];
+
+$gender=$_POST["T7"];
+
+$birthmonth=$_POST["T8"];
+
+$birthdate=$_POST["T9"];
+
+$birthyear=$_POST["T10"];
+
+$link=mysql_connect("localhost","root","root") or die("Fail to connect database.");
+
+mysql_select_db("db1",$link);
+
+mysql_query("SET NAMES utf8");
+
+$q=mysql_query('Select * from Account');
+
+while($row=mysql_fetch_row($q)){
+
+	echo "<tr>";
+
+    echo "<td>$row[1]</td>";
+    echo "<td>$row[2]</td>";
+    echo "<td>$row[3]</td>";
+    echo "<td>$row[4]</td>";
+    echo "<td>$row[5]</td>";
+    echo "<td>$row[6]</td>";
+
+    echo "</tr>\n";
+
+}
+
+?>
+
+
+
+</body>
+</html>

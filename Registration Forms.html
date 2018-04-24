@@ -1,77 +1,201 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Forms Exercise(Registration From)</title>
+    <title>TE: Registration Form</title>
+<style>
+.header {
+    padding: 50px 200px 300px 20px;
+    background-image: url("book.jpg");
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
 </head>
 <body>
+    <h1><strong>Register</strong></h1>
+    
+<form method="POST" action="register.php">
 
-	<h1><strong>Register</strong></h1>
-
-	<form>
-		<label for="First">First Name: </label>
-		<input name="First" id="First" type="text" placeholder="John" required="">
-		<label for="Last">Last Name: </label>
-		<input name="Last" id="Last" type="text" placeholder="Smith" required>
-		
-		<div>
-			<label for="Male">Male</label>
-			<input name="Gender" id="Male" type="radio" value="MALE">
-
-			<label for="Female">Female</label>
-			<input name="Gender" id="Female" type="radio" value="FEMALE">
-
-			<label for="Other">Other</label>
-			<input name="Gender" id="Other" type="radio" value="OTHER">
-		</div>
-
-		<div>
-			<label for="Email">Email: </label>
-			<input name="Email" type="Email" placeholder="your email" required>
-
-			<label for="password">Password:</label>
-			<input name="password" type="password" placeholder="your password" pattern=".{5,10}" required title="5 to 10 characters">
-	
-		</div>
-
-		<div>
-			<label>Birthday: 
-				<select name="Month"  >
-					<option>Month</option>
-					<option>January</option>
-					<option>Febuary</option>
-					<option>March</option>
-				</select>
-			
-				<select name="Day" >
-					<option>Day</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-				</select>
-			
-				<select name="Year" >
-					<option>Year</option>
-					<option>2018</option>
-					<option>2017</option>
-					<option>2016</option>
-				</select>
-
-			</label>
-
-		</div>
-
-		<label for="agreed">I agree to the terms and conditions</label>
-		<input id = "agreed" name="agreed" type="checkbox" required>
-
-		<div>
-			<button>submit</button>
-		</div>
-	</form>
+    <label for="id">Username: </label>
+    <input type="text" name="T1" placeholder="johnsmith123" required/>
+    <br>
+    <label for="First">First Name: </label>
+    <input type="text" name="T2" placeholder="First Name" required/> 
+    <br>
+    <label for="Last">Last Name: </label>
+    <input type="text" name="T3" placeholder="Last Name" required/>
+    <br>
+    <label for="Email">Email: </label>
+    <input type="text" name="T4" placeholder="john123@gmail.com" required/>
+    <br>
+    <label for="Phone">Phone Number: </label>
+    <input type="text" name="T5" placeholder="14081234567" required/>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="T6" placeholder="Password" pattern=".{5,10}" required title="5 to 10 characters"/>
 
 
+    <div>
+        <h2>Location</h2> 
+        <label for="address">Address: </label>
+        <input type="address" name="T7" placeholder="1 Washington Square" required/>
+        <br>
+        <label for="city">City: </label>
+        <input type="city" name="T8" placeholder="San Jose" required/>
+        <br>
+        <label for="state">State: 
+            <select name="T9" id="State" >
+                <option>Alabama</option>
+                <option>Alaska</option>    
+                <option>Arizona</option>
+                <option>Arkansas</option>
+                <option>California</option>
+                <option>Colorado</option>
+                <option>Connecticut</option>
+                <option>Delaware</option>
+                <option>Florida</option>
+                <option>Georgia</option>
+                <option>Hawaii</option>
+                <option>Idaho</option>
+                <option>Illinois</option>
+                <option>Indiana</option>
+                <option>Iowa</option>
+                <option>Kansas</option>
+                <option>Kentucky</option>
+                <option>Louisiana</option>
+                <option>Maine</option>
+                <option>Maryland</option>
+                <option>Massachusetts</option>
+                <option>Michigan</option>
+                <option>Minnesota</option>
+                <option>Mississippi</option>
+                <option>Missouri</option>
+                <option>Montana</option>
+                <option>Nebraska</option>
+                <option>Nevada</option>
+                <option>New Hampshire</option>
+                <option>New Jersey</option>
+                <option>New Mexico</option>
+                <option>New York</option>
+                <option>North Carolina</option>
+                <option>North Dakota</option>
+                <option>Ohio</option>
+                <option>Oklahoma</option>
+                <option>Oregon</option>
+                <option>Pennsylvania</option>
+                <option>Rhode Island</option>
+                <option>South Carolina</option>
+                <option>South Dakota</option>
+                <option>Tennessee</option>
+                <option>Texas</option>
+                <option>Utah</option>
+                <option>Vermont</option>
+                <option>Virginia</option>
+                <option>Washington</option>
+                <option>West Virginia</option>
+                <option>Wisconsin</option>
+                <option>Wyoming</option>
+            </select>
+        </label>
+        <br>
+        <label for="zip">City: </label>
+        <input type="zip" name="T10" placeholder="95112" required/>
+        </label>
+    </div>
+ <!--no need for gender for now   
+    <div>
+        <input name="T7" id="Male" type="radio" value="MALE">
+        <label for="Male">Male</label>
+        
+        <input name="T7" id="Female" type="radio" value="FEMALE">
+        <label for="Female">Female</label>
+        
+        <input name="T7" id="Other" type="radio" value="OTHER">
+        <label for="Other">Other</label>
+    </div>
+    
+    <div>
+        <label>Birthday: 
+            <select name="T8" id="Month" >
+                <option>Month</option>
+                <option>January</option>
+                <option>Febuary</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
 
+            </select>
+            
+            <select name="T9" id="Day" >
+                <option>Day</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+            </select>
+            
+            <select name="T10" id="Year" >
+                <option>Year</option>
+                <option>2005</option>
+                <option>2004</option>
+                <option>2003</option>
+                <option>2002</option>
+                <option>2001</option>
+                <option>2000</option>
+                <option>1999</option>
+                <option>1998</option>
+                <option>1997</option>
+                <option>1996</option>
+                <option>1995</option>
+                <option>1994</option>
+                <option>1993</option>
+                <option>1992</option>
+                <option>1991</option>
+                <option>1990</option>
+                <option>1989</option>
+                <option>1988</option>
+                <option>1987</option>
+            </select>
+        </label>
+    </div>-->
 
-
-
+    <input type="submit" name="submit" value="Submit"/>
+</form> 
 </body>
 </html>
