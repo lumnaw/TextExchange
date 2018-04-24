@@ -52,7 +52,7 @@ function getCheckedCheckboxesFor(checkboxName) {
     cursor: pointer;
 }
 </style>
-
+</head>
 <body>
 <!--==========Sidecar navigation ===============-->
 <div class="sidenav">
@@ -102,16 +102,16 @@ function getCheckedCheckboxesFor(checkboxName) {
 $0 ~ $110+</h4>
   
 <div class="slidecontainer">
-  <input type="range" min="1" max="110" value="50" class="slider" id="myRange">
-  <h5>Price $ <span id="demo"></span></h5>
+  <input type="range" min="1" max="110" value="50" class="slider" id="myPriceRange">
+  <h5>Price $ <span id="demo1"></span></h5>
 </div>
 
  <input type="button" class="button" value="Search"><br><br><br><br>
 
 
 <script>
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
+var slider = document.getElementById("myPriceRange");
+var output = document.getElementById("demo1");
 output.innerHTML = slider.value;
 
 slider.oninput = function() {
@@ -127,13 +127,21 @@ slider.oninput = function() {
   
 <div class="slidecontainer">
   <input type="range" min="0" max="50" value="50" class="slider" id="myRange">
-  <h5>Miles: <span id="demo"></span></h5>
+  <h5>Miles: <span id="demo2"></span></h5>
 </div>
 
  <input type="button" class="button" value="Search"><br><br><br><br>
 
 
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo2");
+output.innerHTML = slider.value;
 
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
  
 
     </div>
@@ -190,10 +198,7 @@ window.onclick = function(event) {
 
 <!--==============Image header===================== -->
 <div class="container">
-  <img src="book2.jpg" alt="book" style="width:100%;">
-  <div class="content">
-    <h3>Search Result</h3>
-  </div>
+  <img src="book.jpg" alt="book" style="width:100%;">
 </div>
 
 <br><br>
