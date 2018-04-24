@@ -9,7 +9,7 @@ if($conn->connect_error)
 
 //echo "Host information: " . mysqli_get_host_info($conn) . PHP_EOL;//Feel free to delete this line, after testing.
 
-$query = "SELECT Name, AuthorFirst, AuthorLast, Subject, Edition, ISBN, Price, SellerID, Description FROM Book WHERE Available = 1";
+$query = "SELECT Name, AuthorFirst, AuthorLast, Subject, Edition, ISBN, Price, SellerID, Description, Trade FROM Book WHERE Available = 1";
 $where_clause = "";
 $first = TRUE;
 $empty = FALSE;
@@ -46,13 +46,23 @@ else
 	$query .= " GROUP BY Subject";
 }
 
+
+//print starts here
 if(($result=$conn->query($query)) == TRUE)
 {
     if(mysqli_num_rows($result) > 0)
     {
     	while($row = mysqli_fetch_array($result, MYSQLI_NUM))
-    	{
-        	printf ("Name: %s <br> Author: %s %s <br> Subject: %s <br> Edition: %s <br> ISBN: %s <br> Price: %0.2f <br> Seller: %s <br> Description: %s<br><br>", $row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
+    	{//prints out the book information
+    		if($row[9] == 1) //row 9 is the check for trade availability, do not change
+    		{//trade:yes
+    			printf ("Name: %s <br> Author: %s %s <br> Subject: %s <br> Edition: %s <br> ISBN: %s <br> Price: %0.2f <br> Seller: %s <br> Description: %s<br> Trade: Yes<br><br>", $row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
+    		}
+    		else
+    		{
+    			printf ("Name: %s <br> Author: %s %s <br> Subject: %s <br> Edition: %s <br> ISBN: %s <br> Price: %0.2f <br> Seller: %s <br> Description: %s<br> Trade: No<br><br>", $row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
+    		}
+        	
     	}
         $result->close();
     }

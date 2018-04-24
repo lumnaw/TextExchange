@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $id = $_POST["T1"];
 $firstname = $_POST["T2"];
@@ -28,6 +29,7 @@ $sqlStr .= "values('$id','$firstname','$lastname','$email',$phone,'$pw','$addres
 
 if($conn->query($sqlStr) === TRUE)
 {
+	$_SESSION["Username"] = $id;
 	header('Location: welcome.html');
 }
 else

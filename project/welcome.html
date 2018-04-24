@@ -64,39 +64,50 @@ function getCheckedCheckboxesFor(checkboxName) {
 
   </form>  
 
-  <h4><b>Price Range</b></h4>
-  <form method="POST" action="search_price.php">
-    <span><input name="price" type="checkbox" value="0-15"/>
-      <label for="price">$0.00 ~ 15.00</label><br></span>
-    <span><input name="price" type="checkbox" value="15-30"/>
-      <label for="price">$15.00 ~ 30.00</label><br></span>
-    <span><input name="price" type="checkbox" value="30-50"/>
-      <label for="price">$30.00 ~ 50.00</label><br></span>
-    <span><input name="price" type="checkbox" value="50-70"/>
-      <label for="price">$50.00 ~ 70.00</label><br></span>
-    <span><input name="price" type="checkbox" value="70-90"/>
-      <label for="price">$70.00 ~ 90.00</label><br></span>
-    <span><input name="price" type="checkbox" value="90-110"/>
-      <label for="price">$90.00 ~ 110.00</label><br></span>
-     <span><input name="price" type="checkbox" value=">110"/>
-      <label for="price"> >$110.00</label><br><br></span>
+<h4>Price Range<br>
+$0 ~ $110+</h4>
+  
+<div class="slidecontainer">
+  <input type="range" min="1" max="110" value="50" class="slider" id="myPriceRange">
+  <h5>Price $ <span id="demo1"></span></h5>
+</div>
 
-    <input type="button" class="button" value="Search"><br><br><br><br>
+ <input type="button" class="button" value="Search"><br><br><br><br>
 
-  </form>
 
-<h4><b>By Range</b></h4>
-   <span><input name="distance" type="checkbox" value="0-15"/>
-     <label for="distance">In 2 miles</label><br></span>
-   <span><input name="price" type="checkbox" value="15-30"/>
-     <label for="distance">In 5 miles</label><br></span>
-   <span><input name="price" type="checkbox" value="30-50"/>
-     <label for="distance">In 10 miles</label><br></span>
-   <span><input name="price" type="checkbox" value="50-70"/>
-     <label for="distance">In 20 miles</label><br></span>
-   <span><input name="price" type="checkbox" value="70-90"/>
-     <label for="distance">In 50 miles</label><br></span>
-<input type="button" class="button" value="Search">
+<script>
+var slider = document.getElementById("myPriceRange");
+var output = document.getElementById("demo1");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+
+
+<h4><b>By Range</b><br>
+
+0 ~ 50+ miles</h4>
+  
+<div class="slidecontainer">
+  <input type="range" min="0" max="50" value="50" class="slider" id="myRange">
+  <h5>Miles: <span id="demo2"></span></h5>
+</div>
+
+ <input type="button" class="button" value="Search"><br><br><br><br>
+
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo2");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+ 
 
     </div>
 </div>
