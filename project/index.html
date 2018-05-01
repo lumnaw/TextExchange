@@ -68,11 +68,14 @@ function getCheckedCheckboxesFor(checkboxName) {
 $0 ~ $110+</h4>
   
 <div class="slidecontainer">
-  <input type="range" min="1" max="110" value="50" class="slider" id="myPriceRange">
+  <form method="POST" action="search_price.php">
+
+  <input type="range" min="1" max="110" value="50" class="slider" id="myPriceRange" name="Pricing">
   <h5>Price $ <span id="demo1"></span></h5>
 </div>
 
- <input type="button" class="button" value="Search"><br><br><br><br>
+ <input type="submit" class="button" value="Search"><br><br><br><br>
+</form>
 
 
 <script>
@@ -85,31 +88,6 @@ slider.oninput = function() {
 }
 </script>
    
-
-<!-- By location-->
-<h4><b>By Range</b><br>
-
-0 ~ 50+ miles</h4>
-  
-<div class="slidecontainer">
-  <input type="range" min="0" max="50" value="50" class="slider" id="myRange">
-  <h5>Miles: <span id="demo2"></span></h5>
-</div>
-
- <input type="button" class="button" value="Search"><br><br><br><br>
-
-
-<script>
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo2");
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-</script>
- 
-
     </div>
   </div>
   
