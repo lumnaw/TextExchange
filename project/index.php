@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <html>
 <head>
@@ -102,7 +101,6 @@ slider.oninput = function() {
 <!--===============Header & Icon=================-->
   
     <p style="font-size: 40px;">Textbook Exchange
-    <button class="iconbutton"><i class="fa fa-shopping-cart"></i></button>
     <button  class="iconbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i></button>
   </p>
 <!--========Login Form=========-->

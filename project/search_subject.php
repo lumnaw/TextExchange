@@ -1,5 +1,6 @@
 <?php
 session_start();
+$user = $_SESSION['Username'];
 $conn = new mysqli("localhost","root","root","Textbook_Exchange");
 
 if($conn->connect_error)
@@ -9,7 +10,7 @@ if($conn->connect_error)
 
 //echo "Host information: " . mysqli_get_host_info($conn) . PHP_EOL;//Feel free to delete this line, after testing.
 
-$query = "SELECT Name, AuthorFirst, AuthorLast, Subject, Edition, ISBN, Price, SellerID, Description, Trade FROM Book WHERE Available = 1";
+$query = "SELECT * FROM Book WHERE Available = 1";
 $where_clause = "";
 $first = TRUE;
 $empty = FALSE;
@@ -18,7 +19,6 @@ $variable=$_POST["subject"];
 if(empty($variable))
 {
 	$empty = TRUE;
-	echo "Query is empty. Returning search by groups.". "<br><br>";
 }
 else
 {
@@ -44,6 +44,7 @@ if(!$empty)
 else
 {
 	$query .= " GROUP BY Subject";
+  
 }
 ?>
 
@@ -117,11 +118,13 @@ else
   <h5>$0 ~ $110+</h5>
     
     <div class="slidecontainer">
-      <input type="range" min="1" max="110" value="50" class="slider" id="myPriceRange">
+      <form method="POST" action = "search_price.php">
+      <input type="range" min="1" max="110" value="50" class="slider" id="myPriceRange" name="Pricing">
       <h5>Price $ <span id="demo1"></span></h5>
     </div>
 
-   <input type="button" class="button" value="Search"><br><br>
+   <input type="submit" class="button" value="Search"><br><br>
+ </form>
    <hr>
 
       <script>
@@ -141,18 +144,19 @@ else
     {
         if(mysqli_num_rows($result) > 0)
         {
-        	while($row = mysqli_fetch_array($result, MYSQLI_NUM))
+        	while($product = mysqli_fetch_object($result))
         	{
-                 ?><img src="nobook.jpg" class="image" alt="Book" style="width:125px; position: absolute; float: left; margin-left: 10px;"><input style="float:right; margin-right: 50px;" type="submit" class="button" value="Add to Cart"><h7><?php
+                 ?><img src="nobook.jpg" class="image" alt="Book" style="width:125px; position: absolute; float: left; margin-left: 10px;">
+                <a href = " cart.php?id=<?php echo $product->BookID;?>">Add to Shopping Cart</a><h7><?php
                 //prints out the book information
-        		if($row[9] == 1) //row 9 is the check for trade availability, do not change
+        		if($product->Trade == 1) //row 9 is the check for trade availability, do not change
         		{//trade:yes
-        			printf ("<b>Book Name: %s </b><br> Author: %s %s <br> Subject: %s <br> Edition: %s <br> ISBN: %s <br> Price: $ %0.2f <br> Seller: %s <br> Description: %s<br> Trade: Yes<br>", $row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
+        			printf ("<b>Book Name: %s </b><br> Author: %s %s <br> Subject: %s <br> Edition: %s <br> ISBN: %s <br> Price: $ %0.2f <br> Seller: %s <br> Description: %s<br> Trade: Yes<br>", $product->Name, $product->AuthorFirst, $product->AuthorLast, $product->Subject, $product->Edition, $product->ISBN, $product->Price, $product->SellerID, $product->Description);
                     ?></h7><hr><?php
         		}
         		else
         		{
-        			printf ("<b>Book Name: %s </b><br> Author: %s %s <br> Subject: %s <br> Edition: %s <br> ISBN: %s <br> Price: $ %0.2f <br> Seller: %s <br> Description: %s<br> Trade: No<br>", $row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8]);
+        			printf ("<b>Book Name: %s </b><br> Author: %s %s <br> Subject: %s <br> Edition: %s <br> ISBN: %s <br> Price: $ %0.2f <br> Seller: %s <br> Description: %s<br> Trade: No<br>", $product->Name, $product->AuthorFirst, $product->AuthorLast, $product->Subject, $product->Edition, $product->ISBN, $product->Price, $product->SellerID, $product->Description);
                     ?></h7><hr><?php
         		}
             	

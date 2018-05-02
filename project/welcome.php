@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION["Username"];
+$user = $_SESSION["Username"];
 
 ?>
 <html>
@@ -72,11 +72,13 @@ function getCheckedCheckboxesFor(checkboxName) {
 $0 ~ $110+</h4>
   
 <div class="slidecontainer">
-  <input type="range" min="1" max="110" value="50" class="slider" id="myPriceRange">
+  <form method="POST" action="search_price.php">
+  <input type="range" min="1" max="110" value="50" class="slider" id="myPriceRange" name="Pricing">
   <h5>Price $ <span id="demo1"></span></h5>
 </div>
 
- <input type="button" class="button" value="Search"><br><br><br><br>
+ <input type="submit" class="button" value="Search"><br><br><br><br>
+</form>
 
 
 <script>
@@ -89,30 +91,6 @@ slider.oninput = function() {
 }
 </script>
 
-
-<h4><b>By Range</b><br>
-
-0 ~ 50+ miles</h4>
-  
-<div class="slidecontainer">
-  <input type="range" min="0" max="50" value="50" class="slider" id="myRange">
-  <h5>Miles: <span id="demo2"></span></h5>
-</div>
-
- <input type="button" class="button" value="Search"><br><br><br><br>
-
-
-<script>
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo2");
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-</script>
- 
-
     </div>
 </div>
   
@@ -124,7 +102,9 @@ slider.oninput = function() {
 <!--===============Header & Icon=================-->
   
     <p style="font-size: 40px;">Textbook Exchange
-    <button class="iconbutton"><i class="fa fa-shopping-cart"></i></button>
+    <form action="cart.php">
+    <button class="iconbutton" type="submit"><i class="fa fa-shopping-cart"></i></button>
+    </form>
     <br>
     <form action="logout.php">
       <button class="iconbutton" type="submit"><i class="fa fa-window-close"></i></button>
