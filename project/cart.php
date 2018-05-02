@@ -2,6 +2,7 @@
 session_start();
 $conn = new mysqli("localhost","root","root","Textbook_Exchange");
 require 'item.php';
+require 'account.php';
 if($conn->connect_error)
 {
 	die("Fail to Connect Database: ". $conn->connect_error);
@@ -18,7 +19,6 @@ if(isset($_GET['id']))
 	$item->Subject = $product->Subject;
 	$item->Edition = $product->Edition;
 	$item->SellerID = $product->SellerID;
-	$item->quantity = 1;
 	//check product is existing in cart
 	$index = -1;
 	$cart = unserialize(serialize($_SESSION['cart']));
@@ -65,7 +65,8 @@ if(isset($_GET['index'])){
 		<th>Subject</th>
 		<th>Edition</th>
 		<th>SellerID</th>
-		<th>Option</th>
+		<th>Trade/Cash</th>
+		<th></th>
 	</tr>
 	<?php
 		$cart = unserialize(serialize($_SESSION['cart']));
@@ -82,13 +83,14 @@ if(isset($_GET['index'])){
 			<td><?php echo $cart[$i]->Subject;?></td>
 			<td><?php echo $cart[$i]->Edition;?></td>
 			<td><?php echo $cart[$i]->SellerID;?></td>
+			<td><a href="contact.php?id=<?php echo $cart[$i]->SellerID; ?>"> Contact</td>
 			<td><a href="cart.php?index=<?php echo $index; ?>" onclick="return confirm('Are you sure?')">Delete</a></td>
 		</tr>
 		<?php 
 			$index++;
 			} ?>
 		<tr>
-			<td colspan ="5" align="right">Total</td>
+			<td colspan ="6" align="right">Total</td>
 			<td align="left"><?php echo $s;?></td>
 		</tr>
 </table>
@@ -141,10 +143,10 @@ if(isset($_GET['index'])){
 
 
 	<div class ="footer" style=" text-align: right">
-		<p>About us</p>
-		<p>Contact Us</p>
-		<p>Shipping & Return</p>
-	</div>
+	    <h6>About us</h6>
+	    <h6>Contact Us</h6> 
+	    <h6>FAQ</h6>
+	</div>  
 </body>
 </head>
 </html>

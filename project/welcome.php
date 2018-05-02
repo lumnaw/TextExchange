@@ -5,40 +5,38 @@ $user = $_SESSION["Username"];
 ?>
 <html>
 <head>
-<title>TE.com</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="homeDesign.css">
+<title>TE: Welcome Back!</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-<!-- Sidebar Multiple Checkbox-->
-<script type="text/javascript">
-function getCheckedCheckboxesFor(checkboxName) {
-    var checkboxes = document.querySelectorAll('input[name="' + checkboxName + '"]:checked'), values = [];
-    Array.prototype.forEach.call(checkboxes, function(el) {
-        values.push(el.value);
-    });
-    return values;
-}
-</script>
+<link rel="stylesheet" type="text/css" href="template.css">
 </head>
-
-
 <body>
+
+<div class="header">
+  <form action="logout.php">
+    <button class="iconbutton"><i class="fa fa-sign-out"></i></button>
+  </form>
+  <form action="cart.php"><!--Insert link to shopping cart -->
+    <button class="iconbutton"><i class="fa fa-shopping-cart"></i></button>
+  </form>
+  <form action="userprofile.php">
+    <button  class="iconbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i></button>
+  </form>
+
+
+  <h1>Textbook Exchange</h1>
+  <p>Students from Standford, UC Berkely, UCLA, SJSU... are using this website.</p>
+
+      <!-- Search Bar-->
+      <form class="example" method="POST" action="search_bar.php" style="margin:auto;max-width:1000px">
+         <input type="text" placeholder="Start by searching ISBN13 or book title..." name="search2" required>
+         <button type="submit"><i class="fa fa-search"></i></button>
+      </form><br><br>
+</div>
+
 
 <!--==========Sidebar navigation ===============-->
 <div class="sidenav">
-  <h2>TE.com</h2>
   
-   <!-- Search Bar-->
-  <form class="example" method="POST" action="search_bar.php" style="margin:auto;max-width:300px">
-     <input type="text" placeholder="Search ISBN13 or title..." name="search2" required>
-     <button type="submit"><i class="fa fa-search"></i></button>
-
-  </form><br>
-  
-  <div class="data">    
   <h4>Subject</h4>
 
   <form method="POST" action="search_subject.php">
@@ -66,131 +64,102 @@ function getCheckedCheckboxesFor(checkboxName) {
 
     <input type="submit" class="button" value="Search">
 
-  </form>  
+  </form><br><br>
 
-<h4>Price Range<br>
-$0 ~ $110+</h4>
+<h4>Price Range</h4>
+<h5>$0 ~ $110+</h5>
   
-<div class="slidecontainer">
-  <form method="POST" action="search_price.php">
-  <input type="range" min="1" max="110" value="50" class="slider" id="myPriceRange" name="Pricing">
-  <h5>Price $ <span id="demo1"></span></h5>
+    <div class="slidecontainer">
+        <form method="POST" action="search_price.php">
+        <input type="range" min="1" max="110" value="50" class="slider" id="myPriceRange" name="Pricing">
+        <h5>Price $ <span id="demo1"></span></h5>
+    </div>
+
+        <input type="submit" class="button" value="Search"><br><br><br><br>
+        </form>
+
+
+    <script>
+    var slider = document.getElementById("myPriceRange");
+    var output = document.getElementById("demo1");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+    </script>
+
+</div>
+  
+
+<!--================List Grid=====================-->
+<div class="main" ><!--Page content, make sure book list stay at the left of sidebar-->
+  <!--Button change list or grid-->
+
+<div class="slideshow-container" style="margin-top: 10px;">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 4</div>
+  <img src="welcome.jpg" style="width:100%">
+  <div class="text"></div>
 </div>
 
- <input type="submit" class="button" value="Search"><br><br><br><br>
-</form>
+<div class="mySlides fade">
+  <div class="numbertext">2 / 4</div>
+  <img src="slide1.png" style="width:100%">
+  <div class="text"></div>
+</div>
 
+<div class="mySlides fade">
+  <div class="numbertext">3 / 4</div>
+  <img src="slide2.png" style="width:100%">
+  <div class="text"></div>
+</div>
 
-<script>
-var slider = document.getElementById("myPriceRange");
-var output = document.getElementById("demo1");
-output.innerHTML = slider.value;
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+  <img src="slide3.png" style="width:100%">
+  <div class="text"></div>
+</div>
 
-slider.oninput = function() {
-  output.innerHTML = this.value;
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <br><br>
+</div>
+  <script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
 }
 </script>
-
-    </div>
 </div>
-  
-
-<!-- Page content -->
-<div class="main">
-<body>
-
-<!--===============Header & Icon=================-->
-  
-    <p style="font-size: 40px;">Textbook Exchange
-    <form action="cart.php">
-    <button class="iconbutton" type="submit"><i class="fa fa-shopping-cart"></i></button>
-    </form>
-    <br>
-    <form action="logout.php">
-      <button class="iconbutton" type="submit"><i class="fa fa-window-close"></i></button>
-    </form>
-    <form action="userprofile.php">
-      <button class="iconbutton" type="submit"><i class="fa fa-user"></button>
-    </form>
-  </p>
-
-
-<!--==============Image header===================== -->
-<div class="container">
-  <img src="book.jpg" alt="book" style="width:100%;">
-  <div class="content">
-    <h3>We Know What You Need</h1>
-    <h3>Over 1000+ Users are using TE.com</h3>
-    <button class="shopbtn">SHOP NOW</button>
-  </div>
-</div>
-
-<br><br>
-<hr>
-
-<!--==============Book Gallery====================-->
-<div class="row">
-  <div class="column">
-    <div class="bookcontent">
-     <div class="buycontainer">
-      <img src="biology.jpg" class="image" alt="Biology" style="width:100%">
-      <div class="middle">
-      <button class="buybtn"><a href="law.html">Buy Now</a></button>
-     </div>
-    </div>
-      <h5>Biology</h5>
-      <p>$50.99 or Exchange</p>
-    </div>
-  </div>
-  <div class="column">
-    <div class="bookcontent">
-      <div class="buycontainer">
-    <img src="History.jpg" class="image" alt="History" style="width:100%">
-      <div class="middle">
-      <button class="buybtn"><a href="law.html">Buy Now</a></button>
-     </div>
-    </div>
-      <h5>World History</h5>
-      <p>$20.99 or Exchange</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="bookcontent">
-     <div class="buycontainer">
-    <img src="chemistry.jpg" class="image" alt="Chemistry" style="width:100%">
-      <div class="middle">
-      <button class="buybtn"><a href="law.html">Buy Now</a></button>
-     </div>
-    </div>
-      <h5>Chemistry</h5>
-      <p>$40.99 or Exchange</p>
-    </div>
-  </div>
-  
-  <div class="column">
-    <div class="bookcontent">
-     <div class="buycontainer">
-     <img src="literature.jpg" class="image" alt="Literature" style="width:100%">
-    <div class="middle">
-      <button class="buybtn"><a href="law.html">Buy Now</a></button>
-     </div>
-    </div>
-      <h5>Literature</h5>
-      <p>$10.00 or Exchange</p>
-    </div>
-  </div>
-
-
-
-</div>
-<!--FOOTER-->
+<!--==================FOOTER========================-->
 <div class ="footer" style=" text-align: right">
-    <p>About us</p>
-    <p>Contact Us</p> 
-    <p>Shipping & Return</p>
-  </div><!-- Page Content END-->
-
+    <h6>About us</h6>
+    <h6>Contact Us</h6> 
+    <h6>FAQ</h6>
+  </div>  
 
 </body>
 </html>
+
