@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $conn = new mysqli("localhost","root","root","Textbook_Exchange");
 
 if($conn->connect_error)
@@ -49,7 +49,7 @@ else
 
 <html>
 <head>
-    <title>Search by Subjuect</title>
+    <title>Search by Subject</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="template.css">
 
@@ -58,7 +58,23 @@ else
 <body>  
 <div class="header">
     <h3 style="float:right;">Go Back to Home Page</h3>
-    <button class="iconbutton"><a href ="template.html"><i class="fa fa-arrow-left"></i></a></button>
+    <button class="iconbutton" onclick="location.href = <?php 
+      if(!isset($_SESSION['Username'])) {
+        echo "'index.php'";
+      }
+      else
+      {
+        echo "'welcome.php'";
+      }?>">
+      <a href =  <?php  
+      if(!isset($_SESSION['Username'])) {
+        echo "'index.php'";
+      }
+      else
+      {
+        echo "'welcome.php'";
+      }
+      ?> "><i class="fa fa-arrow-left"></i></a></button>
     <h1>Search Results by Subjects</h1>
      <!-- Search Bar-->
       <form class="example" method="POST" action="search_bar.php" style="margin:auto;max-width:1000px">

@@ -19,7 +19,7 @@ if(($result=$conn->query($sql)) == TRUE)
     if(mysqli_num_rows($result) == 1)
     {
         $_SESSION["Username"] = $uname;
-    	header('Location: welcome.html');
+    	header('Location: welcome.php');
     }
 }
 else

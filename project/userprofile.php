@@ -12,7 +12,14 @@ if($conn->connect_error)
 
 $sql = "Select Username, FirstName, LastName, Email, PhoneNum, AddressName, City, State, Zip from Account where Username = '$name'";
  
-
+if(!isset($_SESSION['Username']))
+{
+  header('Location: index.php');
+}
+else
+{
+  header('Location: welcome.php');
+}
 
 
 ?>
@@ -58,7 +65,7 @@ $sql = "Select Username, FirstName, LastName, Email, PhoneNum, AddressName, City
     <form action="book_catalog.php">
     <button type= "submit" class="shopbtn">My Books</button>
     </form>    
-    <input type= "button" class="shopbtn" value="Back to Home Page" onclick="document.location.href='welcome.html';"/>   
+    <input type= "button" class="shopbtn" value="Back to Home Page" onclick="document.location.href='welcome.php';"/>   
   </div>
 </div>
 </body>

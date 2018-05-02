@@ -30,7 +30,7 @@ $sqlStr .= "values('$id','$firstname','$lastname','$email',$phone,'$pw','$addres
 if($conn->query($sqlStr) === TRUE)
 {
 	$_SESSION["Username"] = $id;
-	header('Location: welcome.html');
+	header('Location: welcome.php');
 }
 else
 {

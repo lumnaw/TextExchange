@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $conn = new mysqli("localhost","root","root","Textbook_Exchange");
 
 if($conn->connect_error)
@@ -32,7 +32,21 @@ else
 
 <div class="header">
   <h3 style="float:right;">Go Back to Home Page</h3>
-  <button class="iconbutton"><a href ="template.html"><i class="fa fa-arrow-left"></i></a></button>
+  <button class="iconbutton" onclick="location.href = <?php 
+      if(!isset($_SESSION['Username'])) {
+        echo "'index.php'";
+      }
+      else
+      {
+        echo "'welcome.php'";
+      }?>"><a href = <?php 
+      if(!isset($_SESSION['Username'])) {
+        echo "'index.php'";
+      }
+      else
+      {
+        echo "'welcome.php'";
+      }?> "><i class="fa fa-arrow-left"></i></a></button>
   <h1>Search Bar Results</h1>
   <!-- Search Bar-->
     <form class="example" method="POST" action="search_bar.php" style="margin:auto;max-width:1000px">
