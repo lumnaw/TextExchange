@@ -345,20 +345,6 @@ p{
 }
 
 
-/*footer*/
-.footer {
-    font-family: Arial;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color:  #e5e7e9 ;
-    font-size: 15px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-
-
-}
 
 .defaultbtn{
     background-color: black;
