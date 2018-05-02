@@ -12,6 +12,17 @@ h1{
   color:white;
   text-align: left;
 }
+
+
+h1 a:link, a:visited{
+    color:white;
+    text-decoration: none;
+
+}
+
+ h1 a:hover, a:active {
+    color: gray;
+ }
 /*Sidebar Search button*/
 h2{
     font-size: 40px;
