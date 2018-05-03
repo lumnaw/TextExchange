@@ -43,6 +43,6 @@ if(isset($_GET['id']))
 	<br>
 	<br>
 	<?php $index = 0; ?>
-	<a href="cart.php">Back to Cart</a> <a href="cart.php?index=<?php echo $index; ?>" onclick="return confirm('Are you sure? Once you have bought the book, please make sure the seller takes off the listing.')">Contacted Seller</a>
+	<a href="cart.php">Back to Cart</a> <a href="cart.php?index=<?php echo $index; ?>" onclick="return confirm('Are you sure? Once you have bought the book, please make sure the seller takes off the listing.')">Contact Seller</a>
 </body>
 </html>
