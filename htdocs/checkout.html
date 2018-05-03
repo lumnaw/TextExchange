@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="homeDesign.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="header">
+	  <p style="font-size: 40px;">Textbook Exchange
+    <button class="iconbutton"><i class="fa fa-shopping-cart"></i></button>
+	<button  class="iconbutton" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-user"></i></button>
+</p>
+
+</div>
+
+
+</div>
+<div class="col-md-3"></div>
+<div class="col-md-5">
+	<span style="margin-left: 20px;font-size: 2.0em; font-weight: bold;">Total:</span><span style="margin-left: 20px; color: #8F1D21; font-size: 2.0em; font-weight: bold;">${{total}}</span>
+</div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+<div id="paypal-button-container"></div>
+<button ng-click="makePaypalPayment()" class="btn btn-info" style="margin-top: 40px; margin-bottom: 40px;">CheckOut for The Items</button>
+
+</div>
+
+<script>
+	var foo="%= $scope.total";//passing off var
+	// Render the PayPal button
+	paypal.Button.render({
+			// Set your environment
+			env: 'sandbox', // sandbox | production
+			// PayPal Client IDs - replace with your own
+			// Create a PayPal app: https://developer.paypal.com/developer/applications/create
+			client: {
+					sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+					production: '<insert production client id>'
+			},
+			// Set to 'Pay Now'
+		 commit: true,
+			// Wait for the PayPal button to be clicked
+			payment: function() {
+					// Make a client-side call to the REST api to create the payment
+					return paypal.rest.payment.create(this.props.env, this.props.client, {
+							transactions: [
+									{
+											amount: { total: "1200", currency: 'USD' }
+									}
+							]
+					});
+					 },
+			// Wait for the payment to be authorized by the customer
+			onAuthorize: function(data, actions) {
+					// Execute the payment
+					return actions.payment.execute().then(function() {
+							document.querySelector('#paypal-button-container').innerText = 'Payment Complete!';
+					});
+			}
+	}, '#paypal-button-container');
+</script>
+
+
+
+	<div class ="footer" style=" text-align: right">
+		<p>About us</p>
+		<p>Contact Us</p>
+		<p>Shipping & Return</p>
+	</div>
+</body>
+</head>
+</html>

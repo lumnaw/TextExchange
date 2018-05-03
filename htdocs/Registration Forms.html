@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TE: Registration Form</title>
+     <link rel="stylesheet" type="text/css" href="template.css">
+
+<style>
+.header {
+    padding: 50px 200px 300px 20px;
+    background-image: url("book.jpg");
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
+</head>
+<body>
+    <div class="header"> 
+    <h1><strong>Register Form</strong></h1>
+    <a href="index.php"><input style="float: left; margin-left: 60px;"type="submit" class="button" value="Go back to Homepage"></a>
+    </div>
+<form method="POST" action="register.php">
+
+    <label for="id">Username: </label>
+    <input type="text" name="T1" placeholder="johnsmith123" required/>
+    <br>
+    <label for="First">First Name: </label>
+    <input type="text" name="T2" placeholder="First Name" required/> 
+    <br>
+    <label for="Last">Last Name: </label>
+    <input type="text" name="T3" placeholder="Last Name" required/>
+    <br>
+    <label for="Email">Email: </label>
+    <input type="text" name="T4" placeholder="john123@gmail.com" required/>
+    <br>
+    <label for="Phone">Phone Number: </label>
+    <input type="text" name="T5" placeholder="14081234567" required/>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="T6" placeholder="Password" pattern=".{5,10}" required title="5 to 10 characters"/>
+
+
+    
+        <label for="address">Address: </label>
+        <input type="address" name="T7" placeholder="1 Washington Square" required/>
+        <br><br>
+        <label for="city">City: </label>
+        <input type="city" name="T8" placeholder="San Jose" required/>
+        <br><br>
+        <label for="state">State: 
+            <select name="T9" id="State" >
+                <option>Alabama</option>
+                <option>Alaska</option>    
+                <option>Arizona</option>
+                <option>Arkansas</option>
+                <option>California</option>
+                <option>Colorado</option>
+                <option>Connecticut</option>
+                <option>Delaware</option>
+                <option>Florida</option>
+                <option>Georgia</option>
+                <option>Hawaii</option>
+                <option>Idaho</option>
+                <option>Illinois</option>
+                <option>Indiana</option>
+                <option>Iowa</option>
+                <option>Kansas</option>
+                <option>Kentucky</option>
+                <option>Louisiana</option>
+                <option>Maine</option>
+                <option>Maryland</option>
+                <option>Massachusetts</option>
+                <option>Michigan</option>
+                <option>Minnesota</option>
+                <option>Mississippi</option>
+                <option>Missouri</option>
+                <option>Montana</option>
+                <option>Nebraska</option>
+                <option>Nevada</option>
+                <option>New Hampshire</option>
+                <option>New Jersey</option>
+                <option>New Mexico</option>
+                <option>New York</option>
+                <option>North Carolina</option>
+                <option>North Dakota</option>
+                <option>Ohio</option>
+                <option>Oklahoma</option>
+                <option>Oregon</option>
+                <option>Pennsylvania</option>
+                <option>Rhode Island</option>
+                <option>South Carolina</option>
+                <option>South Dakota</option>
+                <option>Tennessee</option>
+                <option>Texas</option>
+                <option>Utah</option>
+                <option>Vermont</option>
+                <option>Virginia</option>
+                <option>Washington</option>
+                <option>West Virginia</option>
+                <option>Wisconsin</option>
+                <option>Wyoming</option>
+            </select>
+        </label>
+        <br><br>
+        <label for="zip">City: </label>
+        <input type="zip" name="T10" placeholder="95112" required/>
+        </label>
+    <br>
+    <input type="submit" name="submit" value="Submit"/>
+</form> 
+</body>
+</html>
