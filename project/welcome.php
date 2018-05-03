@@ -24,7 +24,7 @@ $user = $_SESSION["Username"];
 
 
   <h1>Textbook Exchange</h1>
-  <p>Students from Standford, UC Berkely, UCLA, SJSU... are using this website.</p>
+  <p>Students from Standford, UC Berkeley, UCLA, SJSU... are using this website.</p>
 
       <!-- Search Bar-->
       <form class="example" method="POST" action="search_bar.php" style="margin:auto;max-width:1000px">

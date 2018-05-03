@@ -95,7 +95,15 @@ if(isset($_GET['index'])){
 		</tr>
 </table>
 <br>
-<a href="welcome.php">Continue Shopping</a>
+<a href=<?php  
+      if(!isset($_SESSION['Username'])) {
+        echo "'index.php'";
+      }
+      else
+      {
+        echo "'welcome.php'";
+      }
+      ?> ">Continue Shopping</a>
 <br>
 <br>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
