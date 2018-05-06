@@ -84,7 +84,7 @@ if(isset($_GET['index'])){
 			<td><?php echo $cart[$i]->Edition;?></td>
 			<td><?php echo $cart[$i]->SellerID;?></td>
 			<td><?php if(isset($_SESSION['Username'])) {
-        			?><a href="contact.php?id=<?php echo $cart[$i]->SellerID; ?>"> Contact</td>
+        			?><a href="contact.php?id=<?php echo $cart[$i]->SellerID; ?>&book=<?php echo $cart[$i]->BookID ?>">Contact</td>
       					<?php }
      					else
       					{ ?>
@@ -159,7 +159,6 @@ if(isset($_GET['index'])){
 			}
 	}, '#paypal-button-container');
 </script>
-
 
 
 

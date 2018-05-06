@@ -22,7 +22,13 @@ if(isset($_GET['id']))
 	
 	
 }
+
+if(isset($_GET['book']))
+{
+	$booksid = $_GET['book'];
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,6 +49,6 @@ if(isset($_GET['id']))
 	<br>
 	<br>
 	<?php $index = 0; ?>
-	<a href="cart.php">Back to Cart</a> <a href="cart.php?index=<?php echo $index; ?>" onclick="return confirm('Are you sure? Once you have bought the book, please make sure the seller takes off the listing.')">Contact Seller</a>
+	<a href="cart.php">Back to Cart</a> <a href="buy_book.php?book=<?php echo $booksid; ?>" onclick="return confirm('Are you sure? After this confirmation, the listing will be taken off.')">Contact Seller</a>
 </body>
 </html>
